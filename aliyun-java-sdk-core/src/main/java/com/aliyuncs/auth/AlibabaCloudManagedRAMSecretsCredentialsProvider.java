@@ -27,7 +27,7 @@ public class AlibabaCloudManagedRAMSecretsCredentialsProvider implements Alibaba
 
     public AlibabaCloudManagedRAMSecretsCredentialsProvider(String secretName) {
         if (StringUtils.isEmpty(secretName)) {
-            throw new IllegalArgumentException("");
+            throw new IllegalArgumentException("the param[secretName] is required");
         }
         kmsClient = ClientKeyUtils.getAcsClientByClientKey("");
         this.secretName = secretName;
@@ -35,7 +35,7 @@ public class AlibabaCloudManagedRAMSecretsCredentialsProvider implements Alibaba
 
     public AlibabaCloudManagedRAMSecretsCredentialsProvider(String filePath, String secretName) {
         if (StringUtils.isEmpty(secretName)) {
-
+            throw new IllegalArgumentException("the param[secretName] is required");
         }
         kmsClient = ClientKeyUtils.getAcsClientByClientKey(filePath);
         this.secretName = secretName;
